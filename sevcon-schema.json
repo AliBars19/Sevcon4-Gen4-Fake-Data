@@ -1,5 +1,5 @@
 {
-  "sevcon_motor_schema": {
+  "sevcon_speed_schema": {
     "name": "sevcon.Speed",
     "encoding": "jsonschema",
     "schema": {
@@ -133,30 +133,38 @@
 
 
   "example_messages": {
-    "position_example": {
-      "topic": "/vehicle/gps/position",
+    "speed_example": {
+      "topic": "/vehicle/sevcon/speed",
       "timestamp": 1760561955439310080,
       "data": {
-        "latitude": 52.073519,
-        "longitude": -1.0155399,
-        "altitude": 134.18
+        "motorspeed": 6832,
+        "theoreticaltorque": 34,
+        "actualtorque": 23
       }
     },
-    "velocity_example": {
-      "topic": "/vehicle/gps/velocity",
+    "phase_example": {
+      "topic": "/vehicle/sevcon/phase",
       "timestamp": 1760561955439310080,
       "data": {
-        "speed": 13.74,
-        "heading": 89.95
+        "phase": 120,
+        "frequency": 50
       }
     },
-    "status_example": {
-      "topic": "/vehicle/gps/status",
+    "temperature_example": {
+      "topic": "/vehicle/sevcon/temperature",
       "timestamp": 1760561955439310080,
       "data": {
-        "fix_type": 4,
-        "num_satellites": 12
+        "Heatsink_temp": 70,
+        "motor_temperature": 90
+      }
+    },
+    "electrical_example": {
+      "topic": "/vehicle/sevcon/electrical",
+      "timestamp": 1760561955439310080,
+      "data": {
+        "DC_Bus_Voltage": 95,
+        "DC_Bus_Current": 150
       }
     }
   }
-} 
+}
