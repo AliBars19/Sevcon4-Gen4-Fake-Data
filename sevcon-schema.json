@@ -1,0 +1,162 @@
+{
+  "sevcon_motor_schema": {
+    "name": "sevcon.Speed",
+    "encoding": "jsonschema",
+    "schema": {
+      "type": "object",
+      "title": "sevcon Speed",
+      "description": "Speed & Torque information from motor",
+      "properties": {
+        "motorspeed": {
+          "type": "number",
+          "description": "Motor speed in RPM",
+          "minimum": 0,
+          "maximum": 8000,
+          "unit": "rpm"
+        },
+        "theoreticaltorque": {
+          "type": "number",
+          "description": "Requested motor torque",
+          "minimum": -60,
+          "maximum": 60,
+          "unit": "nm"
+        },
+        "actualtorque": {
+          "type": "number",
+          "description": "Actual motor torque",
+          "minimum": -60,
+          "maximum": 60,
+          "unit": "nm"
+        }
+      },
+      "required": ["motorspeed", "theoreticaltorque", "actualtorque"]
+    },
+    "topic": "/vehicle/sevcon/speed",
+    "update_rate_hz": 10
+  },
+  "sevcon_phase_schema": {
+    "name": "sevcon.Phase",
+    "encoding": "jsonschema",
+    "schema": {
+      "type": "object",
+      "title": "sevcon phase",
+      "description": "Phase & Frequency information from motor",
+      "properties": {
+        "phase": {
+          "type": "number",
+          "description": "Current across three inverter output phases",
+          "minimum": 0,
+          "maximum": 350,
+          "unit": "A"
+        },
+        "frequency": {
+          "type": "number",
+          "description": "Electrical frequency of the three phase AC waveform",
+          "minimum": 0,
+          "maximum": 400,
+          "unit": "Hz"
+        }
+      },
+      "required": ["phase", "frequency"]
+    },
+    "topic": "/vehicle/sevcon/phase",
+    "update_rate_hz": 10
+  },
+  "sevcon_temperature_schema": {
+    "name": "sevcon.Temperature",
+    "encoding": "jsonschema",
+    "schema": {
+      "type": "object",
+      "title": "sevcon Temperature",
+      "description": "Temperature information from sevcon",
+      "properties": {
+        "Heatsink_temp": {
+          "type": "number",
+          "description": "Temperature of the heat sink inside the sevcon",
+          "minimum": 25,
+          "maximum": 85,
+          "unit": "C"
+        },
+        "motor_temperature": {
+          "type": "integer",
+          "description": "Temperature of the motor thermistor",
+          "minimum": 30,
+          "maximum": 120,
+          "unit": "C"
+        }
+      },
+      "required": ["Heatsink_temp", "motor_temperature"]
+    },
+    "topic": "/vehicle/sevcon/temperature",
+    "update_rate_hz": 1
+  },
+  "sevcon_electrical_schema": {
+    "name": "sevcon.Electrical",
+    "encoding": "jsonschema",
+    "schema": {
+      "type": "object",
+      "title": "sevcon Electrical",
+      "description": "DC Bus Voltage and Current information from sevcon",
+      "properties": {
+        "DC_Bus_Voltage": {
+          "type": "number",
+          "description": "Inverters input voltage from the accumulator",
+          "minimum": 80,
+          "maximum": 120,
+          "unit": "V"
+        },
+        "DC_Bus_Current": {
+          "type": "number",
+          "description": "Total current flowing in and out of the inverter",
+          "minimum": 0,
+          "maximum": 300,
+          "unit": "A"
+        }
+      },
+      "required": ["DC_Bus_Voltage", "DC_Bus_Current"]
+    },
+    "topic": "/vehicle/sevcon/electrical",
+    "update_rate_hz": 10
+  },
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  "example_messages": {
+    "position_example": {
+      "topic": "/vehicle/gps/position",
+      "timestamp": 1760561955439310080,
+      "data": {
+        "latitude": 52.073519,
+        "longitude": -1.0155399,
+        "altitude": 134.18
+      }
+    },
+    "velocity_example": {
+      "topic": "/vehicle/gps/velocity",
+      "timestamp": 1760561955439310080,
+      "data": {
+        "speed": 13.74,
+        "heading": 89.95
+      }
+    },
+    "status_example": {
+      "topic": "/vehicle/gps/status",
+      "timestamp": 1760561955439310080,
+      "data": {
+        "fix_type": 4,
+        "num_satellites": 12
+      }
+    }
+  }
+} 
